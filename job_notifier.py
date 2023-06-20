@@ -49,7 +49,7 @@ def get_google_credentials():
             pickle.dump(creds, token)
     return creds
 
-# Function to check for new jobs with the keyword "manager"
+# Function to check for new jobs with the keywords "engineer", etc.
 def check_for_new_jobs(driver):
     driver.get(CEQUINT_CAREERS_URL)
 
@@ -64,7 +64,7 @@ def check_for_new_jobs(driver):
     new_jobs = []
     for job in job_listings:
         job_title = job.text.strip()
-        if job_title not in seen_jobs and ("manager" in job_title.lower() or "developer" in job_title.lower() or "QA" in job_title.lower() or "tester" in job_title.lower()):
+        if job_title not in seen_jobs and ("engineer" in job_title.lower() or "developer" in job_title.lower() or "QA" in job_title.lower() or "tester" in job_title.lower()):
             new_jobs.append(job_title)
             seen_jobs.add(job_title)
 
@@ -75,7 +75,7 @@ def send_email_notification(creds, new_jobs):
     msg = EmailMessage()
     msg.set_content("\n".join(new_jobs))
 
-    msg["Subject"] = f"{len(new_jobs)} new job(s) with 'manager' at Cequint"
+    msg["Subject"] = f"{len(new_jobs)} new job(s) with 'engineer' at Cequint"
     msg["From"] = EMAIL_ADDRESS
     msg["To"] = TO_EMAIL_ADDRESS
 
