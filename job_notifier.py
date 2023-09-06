@@ -20,9 +20,9 @@ from selenium.common.exceptions import TimeoutException
 # Configure your email settings
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-EMAIL_ADDRESS = "yolomanswagmuffin@gmail.com"
-EMAIL_PASSWORD = "Rootroot555!"
-TO_EMAIL_ADDRESS = "anthony.pepino1@gmail.com"
+EMAIL_ADDRESS = {{EMAIL}}
+EMAIL_PASSWORD = {{EMAIL_PASSWORD}}
+TO_EMAIL_ADDRESS = {{EMAIL_2}}
 
 # Path to your WebDriver executable
 WEBDRIVER_PATH = "C:/Users/antho/OneDrive/Desktop/ChromeDriver/chromedriver.exe"
